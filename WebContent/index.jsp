@@ -41,6 +41,7 @@
 			$.ajax({
 				url:"exam02.ajax",
 				type:"get",
+				
 				data:{"param1":"Hello","param2":"World"},
 			});
 		})
@@ -49,15 +50,94 @@
 	
 	응답을 받는 요청<br>
 	<button id="exam03">Exam03</button>
-	<div id="ajaxResponse">여기에 반환메세지 저장!</div>
+	<div id="ajaxResponse1">여기에 반환메세지 저장!</div>
 	<script>
 		$("#exam03").on("click",function(){
 			$.ajax({
 				url:"exam03.ajax",
 				type:"get"			
 			}).done(function(resp){
-				$("#ajaxResponse").text(resp);
-			});
+				$("#ajaxResponse1").text(resp);
+			}).fail(function(a,b,c){
+				$("#ajaxResponse1").text("서버와의 통신이 불안정");
+			}).always(function(){
+				
+			})
+		})
+	</script>
+	<hr>
+	
+	반환하는 값이 객체<br>
+	<button id="exam04">Exam04</button>
+	<div id="ajaxResponse2">여기에 반환메세지 저장!</div>
+	<script>
+		$("#exam04").on("click",function(){
+			$.ajax({
+				url:"exam04.ajax",
+				type:"get",
+				data:"json"
+			}).done(function(resp){
+				let result = JSON.parse(resp);
+				console.log(result.id);
+				console.log(result.name);
+				console.log(result.message);
+				//$("#ajaxResponse2").text(result.id);
+			})
+		})
+	</script>
+	<hr>
+	
+	반환하는 값이 배열<br>
+	<button id="exam05">Exam05</button>
+	<script>
+		$("#exam05").on("click",function(){
+			$.ajax({
+				url:"exam05.ajax",
+				type:"get",
+				dataType:"json"
+			}).done(function(resp){
+				console.log(resp);
+				console.log(resp[0]);
+				console.log(resp[1]);
+			})
+		})
+	</script>
+	<hr>
+	
+	반환하는 값이 객체배열<br>
+	<button id="exam06">Exam06</button>
+	<script>
+		$("#exam06").on("click",function(){
+			$.ajax({
+				url:"exam06.ajax",
+				type:"get",
+				dataType:"json"
+			}).done(function(resp){
+				console.log(resp);
+				console.log(resp[1].name);
+				console.log(resp[0].message);
+			})
+		})
+	</script>
+	<hr>
+	
+	반환하는 값이 객체배열<br>
+	<button id="exam07">Exam07</button>
+	<script>
+		$("#exam07").on("click",function(){
+			$.ajax({
+				url:"exam07.ajax",
+				type:"get",
+				dataType:"json"
+			}).done(function(resp){
+				console.log(resp);
+				console.log(resp[0].id);
+				console.log(resp[0].name);
+				console.log(resp[0].message);
+				console.log(resp[1].id);
+				console.log(resp[1].name);
+				console.log(resp[1].message);
+			})
 		})
 	</script>
 </body>
