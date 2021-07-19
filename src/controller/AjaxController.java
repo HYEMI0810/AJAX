@@ -44,13 +44,13 @@ public class AjaxController extends HttpServlet {
 		}else if(cmd.contentEquals("/exam04.ajax")) {
 			System.out.println("4번예제실행");
 			//response.getWriter().append("1001 Tom HelloWorld");
-			//response.getWriter().append("{\"id\":\"1001\",\"name\":\"Tom\",\"message\":\"Hello Ajax\"}");
-			JsonObject obj = new JsonObject();
-			obj.addProperty("id", 1001);
-			obj.addProperty("name", "Tom");
-			obj.addProperty("message", "Hello Ajax");
+//			response.getWriter().append("{\"id\":\"1001\",\"name\":\"Tom\",\"message\":\"Hello Ajax\"}");
+//			JsonObject obj = new JsonObject();
+//			obj.addProperty("id", 1001);
+//			obj.addProperty("name", "Tom");
+//			obj.addProperty("message", "Hello Ajax");
 			
-			response.getWriter().append(obj.toString());
+//			response.getWriter().append(obj.toString());
 			
 		}else if(cmd.contentEquals("/exam05.ajax")) {
 			System.out.println("5번예제실행");
